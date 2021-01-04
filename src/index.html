@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/index.css">
 </head>
 <body>
+    <header><h1>Welcome to WeatherApp!</h1></header>
     <div>
-        <button>Click Me!</button>
+        <button id="current-weather">Current Weather</button>
+        <!-- <button id="current-weather" onclick="findUserLocation()">Current Weather</button> -->
+    </div>
+    <div>
+        <p id="load-status"></p>
+        <p id="location-info"></p>
+        <a id="map-link" target="_blank"></a>
     </div>    
     <script src="/index.js"></script>
 </body>
