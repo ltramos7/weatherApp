@@ -7,14 +7,31 @@
 
 
 
-let currentWeatherBtn = document.getElementById("current-weather")
+const currentWeatherBtn = document.getElementById("current-weather")
+const loadStatus = document.getElementById("load-status")
+const mapLink = document.getElementById("map-link")
 
-successCallback = (position) => {
-    console.log("latitude: ", position.coords.latitude, "longitude: ", position.coords.longitude)
+
+findUserLocation = () => {
+
+    successCallback = (position) => {
+        const latitude = position.coords.latitude
+        const longitude = position.coords.longitude
+        loadStatus.textContent = ""
+        mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
+        mapLink.textContent = `You location  Latitude: ${latitude} ° and Longitude: ${longitude} °`;
+    }
+    
+    errorCallback = () => {
+        loadStatus.textContent = "Unable to retrieve your location."
+    }
+
+    if(!navigator.geolocation){
+        loadStatus.textContent = "Geolocation is not supported by your browswer."
+    } else {
+        loadStatus.textContent = "Locating..."
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
+    }
 }
 
-errorCallback = (error) => {
-    console.error(error)
-}
-
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
+currentWeatherBtn.addEventListener("click", findUserLocation)
