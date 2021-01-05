@@ -5,7 +5,7 @@
 // new object recieved from weather API
 // define function to display recieved object to display its info onto the frontend
 
-const currentWeatherBtn = document.getElementById("current-weather")
+const currentWeatherBtn = document.getElementById("current-weather-btn")
 const loadStatus = document.getElementById("load-status")
 const locationWeatherInfo = document.getElementById("location-weather-info")
 const API_KEY = "aa662ed0d71b09fd88e5880bc7bf3617"
