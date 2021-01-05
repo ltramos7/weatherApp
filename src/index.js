@@ -57,7 +57,7 @@ renderLocationInfo = (data) => {
     loadStatus.textContent = ""
     cityLocation.textContent = `${data.name} Weather`
     currentTime.textContent = `as of ${month}/${day}/${year}`
-    currentTemp.textContent = data.main.temp
+    currentTemp.textContent = `${data.main.temp}°`
     weatherDescription.textContent = data.weather[0].description
     
     locationWeatherInfo.textContent = `Temperature: ${data.main.temp} °, Feels like: ${data.main.feels_like}, Temperature Low: ${data.main.temp_min}, Temperature High: ${data.main.temp_max}, Date: ${month}/${day}/${year}`
