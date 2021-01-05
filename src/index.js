@@ -10,6 +10,8 @@ const loadStatus = document.getElementById("load-status")
 const locationWeatherInfo = document.getElementById("location-weather-info")
 const cityLocation = document.getElementById("city-location")
 const currentTime = document.getElementById("current-time")
+const currentTemp = document.getElementById("current-temp")
+const weatherDescription = document.getElementById("weather-description")
 const API_KEY = "aa662ed0d71b09fd88e5880bc7bf3617"
 
 
@@ -50,13 +52,15 @@ renderLocationInfo = (data) => {
     console.log("DT:", data.dt)
     let today = new Date(Number(data.dt)*1000)
     console.log("today:", today)
-    let [month, day, year] = today.toLocaleDateString("en-US").split("/")
+    let [month, day, year, hour] = today.toLocaleDateString("en-US").split("/")
 
     loadStatus.textContent = ""
     cityLocation.textContent = `${data.name} Weather`
-    currentTime.textContent = `as of ${today}`
+    currentTime.textContent = `as of ${month}/${day}/${year}`
+    currentTemp.textContent = data.main.temp
+    weatherDescription.textContent = data.weather[0].description
     
-    locationWeatherInfo.textContent = `Temperature: ${data.main.temp}, Feels like: ${data.main.feels_like}, Temperature Low: ${data.main.temp_min}, Temperature High: ${data.main.temp_max}, Date: ${month}/${day}/${year} `
+    locationWeatherInfo.textContent = `Temperature: ${data.main.temp} °, Feels like: ${data.main.feels_like}, Temperature Low: ${data.main.temp_min}, Temperature High: ${data.main.temp_max}, Date: ${month}/${day}/${year}`
 }
 
 currentWeatherBtn.addEventListener("click", getLocalWeather)
