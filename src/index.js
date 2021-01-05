@@ -60,7 +60,7 @@ renderLocationInfo = (data) => {
     currentTemp.textContent = `${data.main.temp}°`
     weatherDescription.textContent = data.weather[0].description
     
-    locationWeatherInfo.textContent = `Temperature: ${data.main.temp} °, Feels like: ${data.main.feels_like}, Temperature Low: ${data.main.temp_min}, Temperature High: ${data.main.temp_max}, Date: ${month}/${day}/${year}`
+    locationWeatherInfo.textContent = `Feels like: ${data.main.feels_like}°, High/Low: ${data.main.temp_max}/${data.main.temp_min}`
 }
 
 currentWeatherBtn.addEventListener("click", getLocalWeather)
