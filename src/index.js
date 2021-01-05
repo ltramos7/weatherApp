@@ -7,12 +7,11 @@
 
 const currentWeatherBtn = document.getElementById("current-weather")
 const loadStatus = document.getElementById("load-status")
-const mapLink = document.getElementById("map-link")
 const locationWeatherInfo = document.getElementById("location-weather-info")
 const API_KEY = "aa662ed0d71b09fd88e5880bc7bf3617"
 
 
-findUserLocation = () => {
+getLocalWeather = () => {
     
     successCallback = (position) => {
         const latitude = position.coords.latitude
@@ -55,4 +54,4 @@ renderLocationInfo = (data) => {
     locationWeatherInfo.textContent = `Location: ${data.name}, Temperature: ${data.main.temp}, Feels like: ${data.main.feels_like}, Temperature Low: ${data.main.temp_min}, Temperature High: ${data.main.temp_max}, Date: ${month}/${day}/${year} `
 }
 
-currentWeatherBtn.addEventListener("click", findUserLocation)
+currentWeatherBtn.addEventListener("click", getLocalWeather)
