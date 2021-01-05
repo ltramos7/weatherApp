@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/index.css">
 </head>
 <body>
     <header><h1>Welcome to WeatherApp!</h1></header>
     <div>
-        <button id="current-weather">Current Weather</button>
-        <!-- <button id="current-weather" onclick="findUserLocation()">Current Weather</button> -->
+        <div>
+            <button id="current-weather">Current Weather</button>
+            <!-- <button id="current-weather" onclick="findUserLocation()">Current Weather</button> -->
+        </div>
+        
+        <div>
+            <p id="load-status"></p>
+            <p id="location-weather-info"></p>
+        </div>    
     </div>
-    <div>
-        <p id="load-status"></p>
-        <p id="location-weather-info"></p>
-    </div>    
     <script src="/index.js"></script>
 </body>
 </html>
